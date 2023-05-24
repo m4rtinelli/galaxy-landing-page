@@ -117,12 +117,11 @@ body {
 }
 
 @media (max-width: 600px) {
-  /* Estilos específicos para telas com largura máxima de 600px (dispositivos móveis) */
   .container {
-    font-size: 30px; /* Reduza ainda mais o tamanho da fonte para dispositivos móveis */
+    font-size: 30px;
   }
   .button span {
-    padding: 10px 7px;
+    padding: 10px 4px;
   }
   .button {
     font-size: 12px;
