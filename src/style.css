@@ -1,0 +1,131 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+  background: transparent;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.webgl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+  font-size: 60px;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 7px;
+  word-spacing: 0px;
+  text-transform: uppercase;
+  color: rgb(238, 238, 238);
+  max-width: 100%;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  flex-direction: row;
+}
+
+.button {
+  /* width: 200px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: 20px;
+  word-spacing: normal;
+  letter-spacing: 5px;
+  border: 1px solid white;
+  /* border-radius: 100px; */
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-size 0.3s ease-in-out;
+  animation: roundAnimation 3s infinite linear;
+}
+
+@keyframes roundAnimation {
+  0% {
+    border-radius: 20px 4px 10px 5px;
+  } /* Valor inicial do raio das bordas */
+  50% {
+    border-radius: 20% 5% 15% 30%;
+  } /* Valor intermediário do raio das bordas */
+  100% {
+    border-radius: 20px 4px 10px 5px;
+  } /* Valor final do raio das bordas */
+}
+
+.button span {
+  font-family: "Space Mono", monospace;
+  text-align: center;
+  padding: 12px 10px;
+}
+
+.container h1 {
+  font-family: "Space Mono", monospace;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background-color: rgba(238, 238, 238); /* 
+  
+  Cor do background que cresce */
+  border-radius: 1%;
+  opacity: 0;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+}
+
+.button:hover::after {
+  width: 200%; /* Aumenta o tamanho horizontalmente */
+  height: 200%; /* Aumenta o tamanho verticalmente */
+  opacity: 0.5;
+}
+
+@media (max-width: 600px) {
+  /* Estilos específicos para telas com largura máxima de 600px (dispositivos móveis) */
+  .container {
+    font-size: 30px; /* Reduza ainda mais o tamanho da fonte para dispositivos móveis */
+  }
+  .button span {
+    padding: 10px 7px;
+  }
+  .button {
+    font-size: 12px;
+    letter-spacing: 3px;
+  }
+}
