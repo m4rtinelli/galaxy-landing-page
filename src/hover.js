@@ -30,3 +30,25 @@ spans.forEach((span) => {
     }, 30);
   });
 });
+
+//mouse follow
+const circle = document.getElementById("circle");
+const textElements = document.querySelectorAll(".container h1");
+// const buttons = document.querySelectorAll(".button span");
+
+window.addEventListener("mousemove", (event) => {
+  const mouseX = event.clientX;
+  const mouseY = event.clientY;
+
+  circle.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+});
+
+textElements.forEach((text) => {
+  text.addEventListener("mouseenter", () => {
+    circle.style.backgroundColor = "white";
+  });
+
+  text.addEventListener("mouseleave", () => {
+    circle.style.backgroundColor = "transparent";
+  });
+});

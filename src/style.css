@@ -36,7 +36,6 @@ body {
   letter-spacing: 7px;
   word-spacing: 0px;
   text-transform: uppercase;
-  color: rgb(238, 238, 238);
   max-width: 100%;
 }
 
@@ -81,6 +80,7 @@ body {
 }
 
 .button span {
+  color: rgb(238, 238, 238);
   font-family: "Space Mono", monospace;
   text-align: center;
   padding: 12px 10px;
@@ -91,6 +91,10 @@ body {
   font-style: italic;
   font-weight: bold;
   text-align: center;
+  color: rgb(238, 238, 238);
+  /* transition: color 1.3s; */
+  mix-blend-mode: difference;
+  z-index: 1;
 }
 
 .button::after {
@@ -109,11 +113,51 @@ body {
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
 }
+.button:hover span {
+  color: black;
+
+  z-index: 1;
+}
 
 .button:hover::after {
   width: 200%; /* Aumenta o tamanho horizontalmente */
   height: 200%; /* Aumenta o tamanho verticalmente */
-  opacity: 0.5;
+  mix-blend-mode: difference;
+  opacity: 1;
+}
+
+
+/* mouse follow */
+#circle {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgba(238, 238, 238);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: background-color 0.3s;
+  background-color: transparent;
+  mix-blend-mode: difference;
+  transition: transform 0.1s;
+  overflow: hidden;
+}
+
+.gelatin-animation {
+  animation: gelatin 1s infinite;
+}
+
+@keyframes gelatin {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.3) rotate(5deg);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (max-width: 600px) {
