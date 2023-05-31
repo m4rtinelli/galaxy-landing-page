@@ -1,4 +1,4 @@
-# Three.js Journey
+# Galaxy Landing Page
 
 ## Setup
 Download [Node.js](https://nodejs.org/en/download/).
